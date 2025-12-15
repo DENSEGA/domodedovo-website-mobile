@@ -310,7 +310,7 @@ footer{
       <tr><th>Прибыль</th><th>4&nbsp;450&nbsp;000 ₽</th></tr>
     </tbody>
   </table>
-  <p class="note"><strong>Цикл продажи и строительства:</strong> 6–8&nbsp;месяцев на один дом.</p>
+  <p class="note"><strong>Цикл продажи и строительства:</strong> 6–8&nbsp;месяцев на весь посёлок.</p>
 </section>
 
 <section id="finance2">
@@ -337,9 +337,9 @@ footer{
     <div class="card">
       <h3>Сроки по циклу</h3>
       <ul>
-        <li>Тёплый контур: 5–6 месяцев</li>
+        <li>Тёплый контур (весь посёлок): 5–6 месяцев</li>
         <li>Отделка: 1–2 месяца</li>
-        <li>Всего: дом “под ключ” — 6–8 месяцев</li>
+        <li>Всего посёлок (20 домов) — 6–8 месяцев</li>
       </ul>
     </div>
     <div class="card">
@@ -467,9 +467,15 @@ footer{
 </footer>
 
 <script>
-document.getElementById('navToggle').addEventListener('click', () => {
+// Ensure the navigation toggle works reliably after the DOM has loaded.
+document.addEventListener('DOMContentLoaded', function () {
+  const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('mobileNav');
-  nav.classList.toggle('open');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      nav.classList.toggle('open');
+    });
+  }
 });
 </script>
 </body>
