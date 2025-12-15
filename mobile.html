@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Мобильная версия — 20 домов 99 м²</title>
+<meta name="description" content="Мобильный лендинг для презентации инвест‑проекта строительства 20 домов 99 м²"/>
+<style>
+:root{
+  --bg:#0f200e;
+  --bg2:#142e18;
+  --card:#16371c;
+  --text:#e6f5e1;
+  --muted:#a0caa5;
+  --accent:#7ccc6c;
+  --accent2:#a3d89a;
+  --border:rgba(255,255,255,.08);
+  --radius:16px;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(800px 500px at 50% 0%, rgba(167,139,250,.12), transparent 70%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+header{
+  position:sticky; top:0; width:100%;
+  background: rgba(18,27,46,.8);
+  backdrop-filter: blur(8px);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  z-index:100;
+}
+header .brand{ display:flex; align-items:center; gap:12px; }
+header .logo{
+  width:32px; height:32px; border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+header .brand .title{ font-weight:700; font-size:14px; line-height:1.2; }
+header .toggle{
+  background:none; border:none; color:var(--text);
+  font-size:20px; cursor:pointer;
+}
+nav{
+  display:none;
+  background: rgba(18,27,46,.8);
+  backdrop-filter: blur(8px);
+}
+nav.open{ display:block; }
+nav a{
+  display:block;
+  padding:12px 16px;
+  color:var(--text);
+  text-decoration:none;
+  border-bottom:1px solid var(--border);
+}
+nav a:hover{ background: rgba(18,27,46,.4); }
+section{
+  padding:24px 16px;
+  border-bottom:1px solid var(--border);
+}
+section h2{
+  margin-top:0;
+  font-size:22px;
+  line-height:1.25;
+}
+.chips{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin:12px 0;
+}
+.chip{
+  padding:6px 10px;
+  background: rgba(0,0,0,.2);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+  border:1px solid var(--border);
+}
+.card{
+  background: rgba(18,27,46,.35);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px;
+  margin-bottom:12px;
+}
+.card h3{ margin-top:0; margin-bottom:8px; font-size:16px; }
+.card ul{ margin:0; padding-left:18px; }
+.card ul li{ margin-bottom:6px; }
+.grid2{
+  display:flex; flex-direction:column; gap:12px;
+}
+.icon-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  gap:16px;
+  margin-top:16px;
+}
+.icon-item{
+  flex:0 0 25%;
+  text-align:center;
+}
+.icon-item img{ width:56px; height:56px; object-fit:contain; }
+.icon-item span{ display:block; font-size:12px; color:var(--muted); margin-top:4px; }
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  background: rgba(18,27,46,.35);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+table th, table td{
+  padding:10px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+table th{ color:var(--muted); text-transform:uppercase; font-weight:700; font-size:11px; }
+table tr:last-child td{ border-bottom:none; }
+.note{
+  margin-top:12px;
+  padding:12px;
+  background: rgba(125,211,252,.08);
+  border:1px dashed rgba(125,211,252,.35);
+  border-radius:var(--radius);
+}
+.banner-grid{
+  display:flex; flex-wrap:wrap; gap:12px;
+}
+.banner-grid div{
+  flex:1 1 calc(50% - 12px);
+}
+.banner-grid img{
+  width:100%; border-radius:var(--radius); object-fit:cover;
+}
+footer{
+  padding:16px;
+  background: rgba(18,27,46,.8);
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+@media (min-width:700px){
+  nav{
+    display:block !important; position:static; background:none; backdrop-filter:none;
+  }
+  nav a{ display:inline-block; border:none; margin-right:12px; }
+  header .toggle{ display:none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true"></div>
+    <div class="title">20 домов 99 м² “под ключ”</div>
+  </div>
+  <button class="toggle" id="navToggle">☰</button>
+</header>
+<nav id="mobileNav">
+  <a href="#intro">О проекте</a>
+  <a href="#audience">Почему купят</a>
+  <a href="#package">Комплектация</a>
+  <a href="#plan">Планировка</a>
+  <a href="#finance1">Финансы (1)</a>
+  <a href="#finance2">Финансы (20)</a>
+  <a href="#schedule">График</a>
+  <a href="#marketing">Маркетинг</a>
+  <a href="#risks">Риски</a>
+  <a href="#investor">Инвестору</a>
+</nav>
+
+<section id="intro">
+  <h2>Коротко о проекте</h2>
+  <p><strong>Инвест‑проект</strong> строительства и продажи 20 типовых каркасных домов для молодой семьи.</p>
+  <div class="chips">
+    <span class="chip">20 участков</span>
+    <span class="chip">20 домов 1 этаж</span>
+    <span class="chip">99 м²</span>
+    <span class="chip">Под ключ</span>
+    <span class="chip">Семейная ипотека + наличные</span>
+  </div>
+  <p>Формат — готовое домовладение: участок + дом + инженерия + отделка с понятной ценой и сроками.</p>
+  <p class="note"><strong>Оффер:</strong> Дом ~100&nbsp;м² в Подмосковье по цене студии в Москве • ~30&nbsp;минут от Москвы • Заезжай и живи.</p>
+  <p><strong>Застройщик:</strong> ООО «ТехноЛэнд», Лапоногова Екатерина Николаевна</p>
+  <div style="margin-top:12px;">
+    <img src="hero.jpg" alt="Фасад дома" style="width:100%; border-radius:var(--radius); object-fit:cover;">
+  </div>
+</section>
+
+<section id="audience">
+  <h2>Для кого и почему купят</h2>
+  <div class="card">
+    <h3>Покупатель</h3>
+    <ul>
+      <li>Молодая семья (1–2 ребёнка), устала от аренды</li>
+      <li>Покупка через семейную ипотеку или наличный расчёт</li>
+      <li>Нужен реальный дом, а не стройка на годы</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Почему выберут нас</h3>
+    <ul>
+      <li><b>Готово под ключ</b>: коммуникации + отделка + участок</li>
+      <li><b>Сравнимо с бюджетом студии</b>, а площадь в 3–4 раза больше</li>
+      <li>Понятные сроки: 6–8 месяцев до ключей</li>
+    </ul>
+  </div>
+  <p class="note"><strong>Сообщение рекламы:</strong> “Покупка без стресса: приехал — посмотрел — оформил ипотеку — получил ключи”.</p>
+  <div style="margin-top:12px;">
+    <img src="side.jpg" alt="Другой ракурс" style="width:100%; border-radius:var(--radius); object-fit:cover;">
+  </div>
+</section>
+
+<section id="package">
+  <h2>Что входит в “под ключ”</h2>
+  <p class="muted">Один понятный пакет без скрытых доплат, чтобы снять страхи покупателя.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Инженерия и коммуникации</h3>
+      <ul>
+        <li>Септик</li>
+        <li>Скважина</li>
+        <li>Подключение электричества</li>
+        <li>Отопление: тёплые полы</li>
+        <li>Сантехника, канализация, вентиляция</li>
+        <li>Приборы и базовая электрофурнитура</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Внутренняя отделка</h3>
+      <ul>
+        <li>Полы: кварц‑винил</li>
+        <li>Стены: MDF‑панели</li>
+        <li>Потолки: натяжные</li>
+        <li>Санузел: плитка</li>
+        <li>Плинтуса и комплект дверей</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Участок</h3>
+      <ul>
+        <li>Забор</li>
+        <li>Минимальное благоустройство</li>
+        <li>Мебель старт (кухня/диван/спальня)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="icon-grid">
+    <div class="icon-item">
+      <img src="septic.png" alt="Септик"><span>Септик</span>
+    </div>
+    <div class="icon-item">
+      <img src="well.png" alt="Скважина"><span>Скважина</span>
+    </div>
+    <div class="icon-item">
+      <img src="electricity.png" alt="Электрика"><span>Электрика</span>
+    </div>
+    <div class="icon-item">
+      <img src="warm_floor.png" alt="Тёплый пол"><span>Тёплый пол</span>
+    </div>
+    <div class="icon-item">
+      <img src="finishing.png" alt="Отделка"><span>Отделка</span>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <h2>Планировка дома 99 м²</h2>
+  <p>Проект предусматривает просторную кухню‑гостиную, две спальни, санузел, техпомещение и веранду.</p>
+  <ul>
+    <li>Кухня‑гостиная — центр семьи</li>
+    <li>Две спальни (для родителей и ребёнка)</li>
+    <li>Санузел и котельная/техпомещение</li>
+    <li>Прихожая и веранда</li>
+  </ul>
+  <div style="margin-top:12px;">
+    <img src="plan.png" alt="Планировка дома" style="width:100%; border-radius:var(--radius); object-fit:contain; background:var(--card);">
+  </div>
+</section>
+
+<section id="finance1">
+  <h2>Финансовая модель: 1 объект</h2>
+  <table>
+    <thead>
+      <tr><th>Статья</th><th>Сумма</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Участок</td><td>1&nbsp;900&nbsp;000 ₽</td></tr>
+      <tr><td>Электричество</td><td>90&nbsp;000 ₽</td></tr>
+      <tr><td>Септик</td><td>250&nbsp;000 ₽</td></tr>
+      <tr><td>Скважина</td><td>350&nbsp;000 ₽</td></tr>
+      <tr><td>Забор</td><td>100&nbsp;000 ₽</td></tr>
+      <tr><td>Благоустройство</td><td>100&nbsp;000 ₽</td></tr>
+      <tr><td>Дом 99 м² (коробка)</td><td>4&nbsp;000&nbsp;000 ₽</td></tr>
+      <tr><td>Инженерия + приборы</td><td>1&nbsp;600&nbsp;000 ₽</td></tr>
+      <tr><td>Внутренняя отделка</td><td>1&nbsp;800&nbsp;000 ₽</td></tr>
+      <tr><td>Мебель</td><td>50&nbsp;000 ₽</td></tr>
+      <tr><th>Себестоимость</th><th>11&nbsp;230&nbsp;000 ₽</th></tr>
+      <tr><td>Риэлтор</td><td>350&nbsp;000 ₽</td></tr>
+      <tr><td>Налог</td><td>640&nbsp;000 ₽</td></tr>
+      <tr><th>Цена продажи</th><th>15&nbsp;680&nbsp;000 ₽</th></tr>
+      <tr><th>Прибыль</th><th>4&nbsp;450&nbsp;000 ₽</th></tr>
+    </tbody>
+  </table>
+  <p class="note"><strong>Цикл продажи и строительства:</strong> 6–8&nbsp;месяцев на один дом.</p>
+</section>
+
+<section id="finance2">
+  <h2>Финансовая модель: 20 домов</h2>
+  <table>
+    <thead>
+      <tr><th>Показатель</th><th>Значение</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Выручка</td><td>313&nbsp;600&nbsp;000 ₽</td></tr>
+      <tr><td>Себестоимость</td><td>224&nbsp;600&nbsp;000 ₽</td></tr>
+      <tr><td>Прибыль</td><td>89&nbsp;000&nbsp;000 ₽</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:12px;">
+    <img src="deco1.png" alt="Диаграмма" style="width:100%; border-radius:var(--radius); object-fit:cover;">
+  </div>
+</section>
+
+<section id="schedule">
+  <h2>Производство и график</h2>
+  <p>Строим очередями по 5 домов, чтобы параллельно строить и продавать, сокращая кассовые разрывы.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Сроки по циклу</h3>
+      <ul>
+        <li>Тёплый контур: 5–6 месяцев</li>
+        <li>Отделка: 1–2 месяца</li>
+        <li>Всего: дом “под ключ” — 6–8 месяцев</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Очередность</h3>
+      <ul>
+        <li>Этап 1: 5 домов → продажи</li>
+        <li>Этап 2: ещё 5 домов в процессе продаж 1‑й очереди</li>
+        <li>Этап 3: повторяем</li>
+        <li>Этап 4: финальная пятёрка</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note"><strong>Смысл модели:</strong> капитал не лежит, а постоянно возвращается с продажами.</p>
+  <div style="margin-top:12px;">
+    <img src="deco2.png" alt="Таймлайн" style="width:100%; border-radius:var(--radius); object-fit:cover;">
+  </div>
+</section>
+
+<section id="marketing">
+  <h2>Маркетинг и продажи</h2>
+  <p class="note"><strong>Главный тезис:</strong> Дом ~100 м² в Подмосковье по цене студии в Москве • 30 минут от Москвы • Заезжай и живи.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Каналы</h3>
+      <ul>
+        <li>Агрегаторы недвижимости и площадки объявлений</li>
+        <li>Таргет по запросам “семейная ипотека / дом под ключ / Домодедово”</li>
+        <li>Партнёрства: ипотечные брокеры, агентства, локальные сообщества</li>
+        <li>Контент: короткие видео “как строим / этапы / качество”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Конверсия</h3>
+      <ul>
+        <li>Шоу‑дом в первой очереди</li>
+        <li>Пакет документов под ипотеку + сопровождение сделки</li>
+        <li>Акции не по цене, а по ценности: “кухня/теплый пол/забор в подарок”</li>
+      </ul>
+    </div>
+  </div>
+  <div class="banner-grid">
+    <div><img src="advert1.png" alt="Креатив 1"></div>
+    <div><img src="advert2.png" alt="Креатив 2"></div>
+    <div><img src="advert3.png" alt="Креатив 3"></div>
+    <div><img src="advert4.png" alt="Креатив 4"></div>
+    <div><img src="advert5.png" alt="Креатив 5"></div>
+  </div>
+</section>
+
+<section id="risks">
+  <h2>Риски и качество</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Сроки и подрядчики</h3>
+      <ul>
+        <li>Типовой проект + повторяемые узлы</li>
+        <li>Параллельная работа по этапам</li>
+        <li>Поэтапная приёмка работ и чек‑листы</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Материалы и цены</h3>
+      <ul>
+        <li>Закупка под очередь заранее</li>
+        <li>Фиксация ключевых позиций</li>
+        <li>Альтернативные поставщики</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Спрос и продажи</h3>
+      <ul>
+        <li>Упор на семейную ипотеку + наличные</li>
+        <li>Гибкие бонусы в комплектации вместо скидок</li>
+        <li>Усиление партнёрской сети</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Репутация и гарантия</h3>
+      <ul>
+        <li>Регламент качества и фотофиксация этапов</li>
+        <li>Понятная гарантийная политика</li>
+        <li>Сервис после сделки</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="investor">
+  <h2>Предложение инвестору</h2>
+  <p class="muted">Выберите модель участия, которая подходит именно вам.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Вариант A — Финансирование оборота</h3>
+      <ul>
+        <li>Финансирование очереди</li>
+        <li>Возврат по мере продаж</li>
+        <li>Доход: фиксированный процент + бонус за досрочное закрытие</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Вариант B — Доля в прибыли</h3>
+      <ul>
+        <li>Участие в финансировании очередей</li>
+        <li>Процент прибыли с каждой продажи до возврата тела + доход</li>
+        <li>Прозрачный контроль: объект‑за‑объектом</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Вариант C — Партнёрство</h3>
+      <ul>
+        <li>Совместная модель на весь проект</li>
+        <li>Инвестор: капитал, застройщик: стройка/продажи</li>
+        <li>Доли прибыли закреплены договором</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note"><strong>Очереди позволяют</strong> быстро возвращать капитал, а не держать его “замороженным” в стройке.</p>
+  <div style="margin-top:12px;">
+    <img src="hero.jpg" alt="Финальный образ" style="width:100%; border-radius:var(--radius); object-fit:cover;">
+  </div>
+</section>
+
+<footer>
+  © 2025 ООО «ТехноЛэнд». Домодедовский район, Новое Растуново.
+</footer>
+
+<script>
+document.getElementById('navToggle').addEventListener('click', () => {
+  const nav = document.getElementById('mobileNav');
+  nav.classList.toggle('open');
+});
+</script>
+</body>
+</html>
